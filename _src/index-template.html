@@ -1,0 +1,31 @@
+@(local-require racket/string)
+@(define  (create-tags  tag-list) 
+              (map (lambda(tag-str) @list{
+                     @|tag-str|
+              })tag-list)
+            )
+
+<li class="list-group-item d-flex justify-content-between ">
+    <a href='@|uri-path|'>@|title|</a>
+    <div class="align-items-right">
+        @create-tags[@(string-split tags "," #:trim? #t #:repeat? #t)]
+        @;<!--<span class="badge badge-primary badge-pill"> my-tag</span>-->
+    </div>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

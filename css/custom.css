@@ -1,0 +1,60 @@
+/* custom.css */
+p {
+  display: block;
+  margin: 1em 0;
+}
+
+h2 { /* per-page main title */
+  margin-top: 0;
+}
+
+h3, h4, h5, h6, h7, h8 {
+  margin-top: 1.75em;
+  margin-bottom: 0.5em;
+}
+
+main{
+   padding: 10px 10px 0px;
+}
+
+main > .container-fluid {
+  padding: 0px 0px 0px;
+  width: 90%;
+  /*max-width: 80%;*/
+}
+
+.footer {
+  background-color: #f5f5f5;
+}
+
+.footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
+  text-align: center;
+}
+
+code {
+  color: black;
+  font-size: 80%;
+}
+
+/* When highlighted code blocks are too wide, they wrap. Resulting in the */
+/* line numbers column's rows not lining up with the code rows. Prevent */
+/* wrapping. */
+pre {
+    white-space: pre;
+    width: inherit;
+}
+
+article img {
+  /* Make sure that images within blog articles never take more width
+     than the article width; `height: auto` ensures the height is also
+     resized proportionally.
+
+     This is useful given that Markdown itself gives you little
+     control over image resizing, and in particular no way to achieve
+     this "best fit" behavior.
+ */
+  max-width: 100%;
+  height: auto;
+}

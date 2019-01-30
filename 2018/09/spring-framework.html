@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="zh" class="h-100">
+  <head>
+
+    <meta charset="utf-8">
+    <title>Spring Framework</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta name="description" content="[TOC]  Spring:   Spring 参考文档   Spring core   https://docs.spring.io/spring/docs/5.0.5.RELEASE/spring-framework-reference/core.html   Spring mvc  Sping将程序看成由各个组件相互组装而成，`抽象出组件和组装组件的容器`。应用程序中通过组件的配置信息（xml、java注解、java代码）告诉容器如何初始化、配置和组件组件，Spring扫描配置信息，然后按照配置信息...">
+    <meta name="author"      content="Gnaily">
+    <meta name="keywords"    content="Web, Spring">
+    <link rel="icon"      href="/favicon.ico">
+    <link rel="canonical" href="http://yangliang.site/2018\09\spring-framework.html">
+
+
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/custom.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/pygments.css">
+    <!-- Feeds -->
+    <link rel="alternate" type="application/atom+xml"
+          href="/feeds\all.atom.xml" title="Atom Feed">
+    <link rel="alternate" type="application/rss+xml"
+          href="/feeds\all.rss.xml" title="RSS Feed">
+    <!-- JS -->
+    <script type="text/javascript">
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-xxxxx', 'auto');
+      ga('send', 'pageview');
+    </script>
+  </head>
+  <body  class="d-flex flex-column h-100">
+    <header>
+        <!--  nav bar begin -->
+        <nav class="navbar navbar-expand-md navbar-light bg-light">
+          <div class="container">
+
+              <a href="/index.html" class="navbar-brand">Gnaily's Home</a>
+
+              <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+                      data-target="#navbar_collapse" aria-controls="navbar_collapse"
+                      aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+
+              <div class="collapse navbar-collapse" id="navbar_collapse">
+                  <ul class="navbar-nav mr-auto justify-content-end">
+
+
+                    <li class="nav-item dropdown">
+                      <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+                        博文标签<b class="caret"></b>
+                      </a>
+
+                      <div class="dropdown-menu">
+                        <a class="dropdown-item" href="/tags\Spring.html">Spring</a><a class="dropdown-item" href="/tags\Web.html">Web</a>
+                      </div>
+                    </li>
+
+                    <li>
+                      <a class="nav-link" href="/About.html">关于</a>
+                    </li> 
+
+                    <li class="nav-item">
+                      <a class="nav-link" href="/feeds\all.atom.xml">Atom</a>
+                    </li>
+
+                    <li class="nav-item">
+                      <a class="nav-link" href="/feeds\all.rss.xml">RSS</a>
+                    </li>
+                  </ul>
+              </div>
+
+          </div>
+        </nav>
+      <!--  nav bar end -->
+    </header>
+
+    <main   class="flex-shrink-0" >
+
+      <div class="container-fluid">
+
+        <div class="row">
+          <div class="col-md-1  col-lg-1 "></div>
+          <div class="col-md-10  col-lg-10 ">
+
+
+              <ul class="list-group">
+
+                <article>
+  <header>
+    <h1>Spring Framework</h1>
+    <p class='date-and-tags'> <span class="tags"><a href="/tags\Web.html">Web</a>, <a href="/tags\Spring.html">Spring</a></span></p>
+  </header>
+
+<p>[TOC]</p>
+
+<h1 id="spring">Spring</h1>
+
+<blockquote>
+ <p>Spring 参考文档</p>
+ <p>Spring core</p>
+ <p>https://docs.spring.io/spring/docs/5.0.5.RELEASE/spring-framework-reference/core.html</p>
+ <p>Spring mvc</p></blockquote>
+
+<p>Sping将程序看成由各个组件相互组装而成，<code>抽象出组件和组装组件的容器</code>。应用程序中通过组件的配置信息（xml、java注解、java代码）告诉容器如何初始化、配置和组件组件，Spring扫描配置信息，然后按照配置信息组装出程序。这就是Spring的核心原理。</p>
+
+<div class="figure"><img src="C:UsersGnailyAppDataLocalTemp1523797001169.png" alt="1523797001169" />
+ <p class="caption">1523797001169</p></div>
+
+<h3 id="应用程序组件的表示spring-bean">应用程序组件的表示——Spring Bean</h3>
+
+<p>Spring使用Bean来表示应用程序组件，在Spring中每一个应用程序组件都是一个Bean实体。Spring的Bean可以是任何形式的POJO。</p>
+
+<p>Bean的作用域：</p>
+
+<p>| Scope | Description | | &mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash; | &mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash; | | <a href="https://docs.spring.io/spring/docs/5.0.5.RELEASE/spring-framework-reference/core.html#beans-factory-scopes-singleton">singleton</a> | (Default) Scopes a single bean definition to a single object instance per Spring IoC container. | | <a href="https://docs.spring.io/spring/docs/5.0.5.RELEASE/spring-framework-reference/core.html#beans-factory-scopes-prototype">prototype</a> | Scopes a single bean definition to any number of object instances. | | <a href="https://docs.spring.io/spring/docs/5.0.5.RELEASE/spring-framework-reference/core.html#beans-factory-scopes-request">request</a> | Scopes a single bean definition to the lifecycle of a single HTTP request; that is, each HTTP request has its own instance of a bean created off the back of a single bean definition. Only valid in the context of a web-aware Spring <code>ApplicationContext</code>. | | <a href="https://docs.spring.io/spring/docs/5.0.5.RELEASE/spring-framework-reference/core.html#beans-factory-scopes-session">session</a> | Scopes a single bean definition to the lifecycle of an HTTP <code>Session</code>. Only valid in the context of a web-aware Spring <code>ApplicationContext</code>. | | <a href="https://docs.spring.io/spring/docs/5.0.5.RELEASE/spring-framework-reference/core.html#beans-factory-scopes-application">application</a> | Scopes a single bean definition to the lifecycle of a <code>ServletContext</code>. Only valid in the context of a web-aware Spring <code>ApplicationContext</code>. | | <a href="https://docs.spring.io/spring/docs/5.0.5.RELEASE/spring-framework-reference/web.html#websocket-stomp-websocket-scope">websocket</a> | Scopes a single bean definition to the lifecycle of a <code>WebSocket</code>. Only valid in the context of a web-aware Spring <code>ApplicationContext</code>. |</p>
+
+<p>Bean的配置：</p>
+
+<p>xml配置Bean：在xml文件中配置一个Bean时，用一个唯一的id来标识这个Bean,用class指定该Bean的类的全限定名（包名.类名）。</p>
+
+<div class="brush: xml">
+ <pre><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd"&gt;
+
+    &lt;bean id="..." class="..."&gt;
+        &lt;!-- collaborators and configuration for this bean go here --&gt;
+    &lt;/bean&gt;
+
+    &lt;bean id="..." class="..."&gt;
+        &lt;!-- collaborators and configuration for this bean go here --&gt;
+
+    &lt;!-- more bean definitions go here --&gt;
+
+&lt;/beans&gt;</code></pre></div>
+
+<p>注解配置Bean：在POJO的类上添加@Bean注解。</p>
+
+<h3 id="应用程序组件的组装spring-依赖注入与控制反转">应用程序组件的组装——Spring 依赖注入与控制反转</h3>
+
+<h4 id="依赖注入dependency-injection">依赖注入（Dependency Injection）</h4>
+
+<p>一个对象不在自己的内部构造出它所依赖的对象，它所依赖的对象由第三方构造然后通过该对象的<code>构造方法</code>或者<code>setter方法</code>注入进来。</p>
+
+<h4 id="控制反转容器ioc-container">控制反转容器（IoC Container）</h4>
+
+<p>Spring通过一个容器来根据一个对象的配置信息（xml、java注解、java代码）组装所依赖的Bean实例，并将组装出的Bean实例注入到该对象中。Spring中的这个容器控制着所有应用组件（Bean对象）的整个生命周期，从如何产生到如何销毁，而原本这些对象的生命周期都是由其依赖的对象直接控制的，这个容器被叫做控制反转容器，因为它反转了对象的控制权。Spring容器是Spring的核心。</p>
+
+<ul>
+ <li>
+  <p><code>org.springframework.beans</code></p></li>
+ <li>
+  <p><code>org.springframework.context</code></p></li></ul>
+
+<h3 id="应用程序资源spring-resource">应用程序资源——Spring Resource</h3>
+
+<p>Spring内部自定义的资源：</p>
+
+<ul>
+ <li>
+  <p>UrlResource：wraps a <code>java.net.URL</code>, and may be used to access any object that is normally accessible via a URL, such as files, an HTTP target, an FTP target, etc.</p></li>
+ <li>ClassPathResource：represents a resource which should be obtained from the classpath.This uses either the thread context class loader, a given class loader, or a given class for loading resources.</li>
+ <li>FileSystemResource：a <code>Resource</code> implementation for <code>java.io.File</code> handles. It obviously supports resolution as a <code>File</code>, and as a <code>URL</code>.</li>
+ <li>ServletContextResource：a <code>Resource</code> implementation for <code>ServletContext</code> resources, interpreting relative paths within the relevant web application’s root directory</li>
+ <li>InputStreamResource：implementation for a given <code>InputStream</code>. This should only be used if no specific <code>Resource</code> implementation is applicable.</li>
+ <li>ByteArrayResource：a <code>Resource</code> implementation for a given byte array</li></ul>
+
+<p>资源加载器（ResourceLoader）：</p>
+
+<p>资源加载器用来实现在应用程序中加载资源。 Spring中ResourceLoader接口定义如下所示。 Spring中所用的应用程序上下文都实现了该接口。所以如果在应用程序中想要获取资源，可以通过应用程序上下文来获取。例如applicationContext.getResource(&ldquo;http://myhost.com/resource/path/myTemplate.txt&rdquo;)；</p>
+
+<div class="brush: java">
+ <pre><code>public interface ResourceLoader {
+
+    Resource getResource(String location);
+}</code></pre></div>
+
+<h3 id="应用程序数据处理验证数据绑定和类型转换">应用程序数据处理——验证、数据绑定和类型转换</h3>
+
+<h4 id="validation">Validation</h4>
+
+<h4 id="data-binding">Data Binding</h4>
+
+<h4 id="type-convertion">Type Convertion</h4>
+
+<p>Spring 提供了一个通用的类型转换系统,可以用来进行类型之间的转换。其接口定义如下：</p>
+
+<div class="brush: java">
+ <pre><code>package org.springframework.core.convert.converter;
+
+public interface Converter&lt;S, T&gt; {
+
+    T convert(S source);
+
+}</code></pre></div>
+
+<h3 id="切面编程spring-aop">切面编程——Spring AOP</h3>
+
+<h4 id="aop原理">AOP原理</h4>
+
+<h4 id="spring-aop中的概念">Spring AOP中的概念</h4>
+
+<p>AOP框架是Spring的一个关键组件。AOP的应用如权限管理、日志记录、事务的。Spring中AOP的概念：</p>
+
+<ul>
+ <li>
+  <p><em>Aspect</em> ：切面，对跨越多个类的关注点的模块化抽象。</p></li>
+ <li><em>Join point</em> ：接入点，表示程序执行期间的一个位置，比如程序中某个方法调用前的地方，方法调用异常的地方或者方法调用结束的地方，这些位置可以接入一些切面的行为。</li>
+ <li><em>Advice</em> ：表示切面在特殊接入点（join point）的行为。</li>
+ <li><em>Pointcut</em> ：切点，对接入点（join point）的匹配预测。Advice 被关联到一个pointcut表达式，它会在匹配 pointcut表达式的任何接入点处执行行。</li>
+ <li><em>Introduction</em> ：在一个类型上声明附加的方法和字段</li>
+ <li><em>Target object</em> : 目标对象。</li>
+ <li><em>AOP proxy</em> ：AOP 框架为实现切面契约而创建的对象，它是Target object的代理对象。</li>
+ <li><em>Weaving</em> ：</li></ul>
+
+<p>JDk动态代理实现AOP：</p>
+
+<div class="brush: java">
+ <pre><code>public abstract class Aspect implements InvocationHandler {
+
+    private Object target;
+
+    public Aspect(Object target) {
+        this.target = target;
+    }
+
+    /**
+     * Returns target object.
+     */
+    public final Object getTarget() {
+        return this.target;
+    }
+
+    /**
+     * Runs before targets method. Returns {@code true} if target method
+     * should run.
+     */
+    public abstract boolean before(Object target, Method method, Object[] args);
+
+    /**
+     * Runs after targets method. Returns {@code true} if aspect method should
+     * return value, otherwise {@code null}.
+     */
+    public abstract boolean after(Object target, Method method, Object[] args);
+
+    /**
+     * Invoked after exception.
+     */
+    public abstract boolean afterException(Object target, Method method, Object[] args, Throwable throwable);
+
+    @Override
+    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+        Object result = null;
+
+        if (before(target, method, args)) {
+            try {
+                result = method.invoke(target, args);
+            }
+            catch (InvocationTargetException e) {
+                afterException(args, method, args, e.getTargetException());
+            }
+            catch (Exception ex) {
+                throw ex;
+            }
+        }
+        if (after(target, method, args)) {
+            return result;
+        }
+        return null;
+    }
+
+}</code></pre></div>
+
+<div class="brush: java">
+ <pre><code>public class AopProxy {
+
+    /**
+     * Creates a proxy of given target and the aspect.
+     */
+    @SuppressWarnings("unchecked")
+    public static &lt;T&gt; T proxyOf(T target, Class&lt;? extends Aspect&gt; aspectClass) {
+        final Aspect aspect;
+
+        try {
+            aspect = ClassUtil.newInstance(aspectClass, target);
+        }
+        catch (Exception e) {
+            throw new IllegalArgumentException("Can't create new instance of aspect class", e);
+        }
+
+        return (T) newProxyInstance(target.getClass().getClassLoader(), aspect, target.getClass().getInterfaces());
+    }
+
+    /**
+     * Creates a proxy from given {@link Aspect}.
+     */
+    @SuppressWarnings("unchecked")
+    public static &lt;T&gt; T proxyOf(Aspect aspect) {
+        final Object target = aspect.getTarget();
+        return (T) newProxyInstance(target.getClass().getClassLoader(), aspect, target.getClass().getInterfaces());
+    }
+
+    /**
+     * Simple wrapper for javas {@code newProxyInstance}.
+     */
+    @SuppressWarnings("unchecked")
+    public static &lt;T&gt; T newProxyInstance(ClassLoader classloader, InvocationHandler invocationHandler, Class&lt;?&gt;... interfaces) {
+        if (interfaces.length == 0) {
+            throw new IllegalArgumentException("No interfaces of target class found.");
+        }
+        return (T) Proxy.newProxyInstance(classloader, interfaces, invocationHandler);
+    }
+
+}
+ </code></pre></div>
+
+<h3 id="spring事务">Spring事务</h3>
+
+<h3 id="springmvc">SpringMVC</h3>
+
+</article>
+              </ul>
+          </div>
+          <div class="col-md-1  col-lg-1 "></div>
+        </div>
+      </div>
+    </main>
+
+    <!-- footer begin -->
+    <footer class="footer mt-auto py-3">
+        <div class="container">
+          <span class="text-muted">©2019 yangliang.All rights reserved.</span>
+        </div>
+    </footer>
+    <!-- footer end -->
+
+    <!-- </body> JS -->
+    <script type="text/javascript" src="/js/jquery-3.2.1.slim.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
