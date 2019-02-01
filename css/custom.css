@@ -36,7 +36,7 @@ html {
   -webkit-font-smoothing: antialiased; 
 }
 @media screen and (max-width: 540px) {
-  html { font-size: 0.9rem;}
+  html { font-size: 1rem;}
 }
 
 body { 
@@ -212,33 +212,33 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 { 
   padding-bottom: 0.3em; 
-  font-size: 2.25em; 
+  font-size: 2.25rem; 
   line-height: 1.2; 
   border-bottom: 1px solid rgb(238, 238, 238); 
 }
 
 h2 { 
   padding-bottom: 0.3em; 
-  font-size: 1.75em; 
+  font-size: 1.75rem; 
   line-height: 1.225; 
   border-bottom: 1px solid rgb(238, 238, 238);
 }
 
 h3 { 
-  font-size: 1.5em; 
+  font-size: 1.5rem; 
   line-height: 1.43; 
 }
 
 h4 { 
-  font-size: 1.25em; 
+  font-size: 1.25rem; 
 }
 
 h5 { 
-  font-size: 1em; 
+  font-size: 1rem; 
 }
 
 h6 { 
-  font-size: 1em; 
+  font-size: 1rem; 
   color: rgb(119, 119, 119);
 }
 
