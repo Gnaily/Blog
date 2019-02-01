@@ -379,7 +379,7 @@ article img {
   max-width: 85%;  
   padding: 0px 30px 30px;
 }
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 960px) {
   #write { width: 100%;  padding: 0px 0px 30px;}
 }
 
