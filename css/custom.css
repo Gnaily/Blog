@@ -339,6 +339,7 @@ article header{
   margin: 0 auto;
   text-align: center;
 }
+
 article pre {
     white-space: pre;
     width: inherit;
@@ -377,6 +378,9 @@ article img {
   overflow-x: visible; 
   max-width: 85%;  
   padding: 0px 30px 30px;
+}
+@media screen and (max-width: 500px) {
+  #write { width: 100%;  padding: 0px 0px 30px;}
 }
 
 #write.first-line-indent p {
