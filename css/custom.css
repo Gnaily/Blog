@@ -317,7 +317,7 @@ figure > table {
 }
 
 
-video { max-width: 100%; display: block; margin: 0px auto; }
+video { max-width: 60%; display: block; margin: 0px auto; }
 
 
 /* When highlighted code blocks are too wide, they wrap. Resulting in the */
@@ -334,7 +334,7 @@ article{
   article {
     margin:0 0;
     border: 2px solid rgb(231, 234, 237);
-    max-width: 100%;  
+    max-width: 98%;  
   }
 }
 
