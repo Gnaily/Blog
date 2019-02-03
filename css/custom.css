@@ -94,7 +94,11 @@ blockquote > :first-child, li > :first-child {
 ul, ol { 
   padding-left: 30px; 
 }
-ul{list-style: disc ;}
+
+ul{
+  list-style: disc ;
+}
+
 ul:first-child, ol:first-child { 
   margin-top: 0px; 
 }
@@ -334,6 +338,7 @@ article{
   article {
     margin:0 0;
     border: 2px solid rgb(231, 234, 237);
+    /**do not set max-width:100%,because the border have been take place 2px*/
     max-width: 98%;  
   }
 }
