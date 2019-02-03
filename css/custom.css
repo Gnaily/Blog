@@ -488,8 +488,9 @@ main > .container-fluid {
 }
 @media screen and (max-width: 960px) {
   main> .container-fluid {
-   padding: 10px 0px 15px;
+   padding: 0px 0px 0px;
    max-width: 98%;
+   overflow: hidden;
   }
 }
 
