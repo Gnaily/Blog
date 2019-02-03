@@ -35,6 +35,7 @@ html {
   font-family: "Helvetica Neue", Helvetica,"Open Sans", "Clear Sans",  Arial, sans-serif; 
   -webkit-font-smoothing: antialiased; 
 }
+
 @media screen and (max-width: 540px) {
   html { font-size: 1rem;}
 }
@@ -54,11 +55,6 @@ body {
   color: rgb(51, 51, 51); line-height: 1.6; 
 }
 
-
-body.typora-export { 
-  padding-left: 30px; 
-  padding-right: 30px; 
-}
 
 iframe { 
   margin: auto; 
@@ -98,7 +94,7 @@ blockquote > :first-child, li > :first-child {
 ul, ol { 
   padding-left: 30px; 
 }
-
+ul{list-style: disc ;}
 ul:first-child, ol:first-child { 
   margin-top: 0px; 
 }
@@ -261,7 +257,8 @@ a:active, a:hover {
 }
 
 img { 
-  max-width: 100%; vertical-align: middle; 
+
+  vertical-align: middle; 
 }
 
 a img, img a { 
@@ -322,9 +319,6 @@ figure > table {
 
 video { max-width: 100%; display: block; margin: 0px auto; }
 
-main{
-   padding: 10px 10px 15px;
-}
 
 /* When highlighted code blocks are too wide, they wrap. Resulting in the */
 /* line numbers column's rows not lining up with the code rows. Prevent */
@@ -332,9 +326,18 @@ main{
 
 
 article{
-
-  border: 2px solid rgb(231, 234, 237)
+  margin:0 auto;
+  border: 2px solid rgb(231, 234, 237);
+  max-width: 83%;
 }
+@media screen and (max-width: 960px) {
+  article {
+    margin:0 0;
+    border: 2px solid rgb(231, 234, 237);
+    max-width: 100%;  
+  }
+}
+
 
 article header{
   margin: 0 auto;
@@ -354,7 +357,8 @@ article img {
      control over image resizing, and in particular no way to achieve
      this "best fit" behavior.
  */
-  max-width: 100%;
+  margin:0 auto;
+  max-width: 60%; 
   height: auto;
 }
 
@@ -382,7 +386,7 @@ article img {
 }
 
 @media screen and (max-width: 960px) {
-  #write { margin: 0 0; max-width: 100%;  padding: 0px 3px 30px;}
+  #write { margin: 0 0; max-width: 100%;  padding: 0px 10px 30px;}
 }
 
 #write.first-line-indent p {
@@ -475,15 +479,18 @@ article img {
  * 
  ***************************************************************************/
 main > .container-fluid {
+  margin: 0 auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
   padding: 0px 0px 0px;
   max-width: 90%;
   /*max-width: 80%;*/
 }
 @media screen and (max-width: 960px) {
-  main{
+  main> .container-fluid {
    padding: 10px 0px 15px;
+   max-width: 98%;
   }
-  
 }
 
 .footer {
@@ -530,7 +537,7 @@ main > .container-fluid {
   white-space: normal; 
 }
 
-.typora-export .footnote-line, .typora-export li, .typora-export p { 
+#write .footnote-line, #write li, #write p { 
   white-space: pre-wrap; 
 }
 
@@ -726,7 +733,7 @@ a.md-print-anchor {
   word-wrap: normal; 
   color: inherit; 
   border-right: 30px solid transparent; 
-  width: fit-content;
+  max-width: fit-content;
 }
 
 .CodeMirror.cm-s-inner { 
@@ -824,7 +831,8 @@ a.md-print-anchor {
 .CodeMirror-hscrollbar { 
   bottom: 0px; 
   left: 0px; 
-  overflow: hidden; 
+  overflow-y: hidden; 
+  overflow-x: auto; 
 }
 
 .CodeMirror-vscrollbar { 
@@ -999,4 +1007,3 @@ header, .context-menu, .megamenu-content, footer { font-family: "Segoe UI", Aria
 .html-for-mac .context-menu { --item-hover-bg-color: #E6F0FE; }
 #md-notification .btn { border: 0px; }
 .dropdown-menu .divider { border-color: rgb(229, 229, 229); }
-.typora-export li, .typora-export p, .typora-export,  .footnote-line {white-space: normal;}
