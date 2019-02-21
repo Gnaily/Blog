@@ -75,7 +75,7 @@
                     </li>
 
                     @ni[(string-append uri-prefix "/About.html") "关于"]
-
+                    @ni[(string-append uri-prefix "/Links.html") "Links"]
                     <li class="nav-item">
                       <a class="nav-link" href="@|atom-feed-uri|">Atom</a>
                     </li>
@@ -99,15 +99,28 @@
             "col-md-4" divs, or 2 "col-md-6" divs. }
         <div class="row">
           <div class="col-md-12  col-lg-12 ">
-            @;{ Index pages for posts have @tag that's not #f }
+          @;{ Index pages for posts have @tag that's not #f }
             @(when tag
-            @list{
-              <h4> <em>@|tag|</em></h4>
-            })
-              <ul class="list-group">
-                @;{ The main page contents are in @contents }
-                @|contents|
-              </ul>
+                  @list{
+                    <h4> <em>@|tag|</em></h4>
+                  })
+
+
+            @(if (string-ci=? uri-path
+                              (string-append uri-prefix
+                                             "/Links.html"))
+                  @list{
+                    <article>
+                      <div  id='write'  class = 'is-node'>
+                          @|contents|
+                      </div>
+                    </article>}
+
+                  @list{
+                    <ul class="list-group">
+                        @;{ The main page contents are in @contents }
+                        @|contents|
+                    </ul>})    
           </div>
         </div>
       </div>

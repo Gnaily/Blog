@@ -32,7 +32,7 @@ html {
   font-size: 1.1rem;
   background-color: var(--bg-color); 
   color: var(--text-color); 
-  font-family: "Helvetica Neue", Helvetica,"Open Sans", "Clear Sans",  Arial, sans-serif; 
+  font-family: "sans-serif","Microsoft YaHei","Helvetica Neue", Helvetica,"Open Sans", "Clear Sans",  Arial; 
   -webkit-font-smoothing: antialiased; 
 }
 
@@ -205,7 +205,7 @@ h1, h2, h3, h4, h5, h6 {
  position: relative; 
  margin-top: 1rem; 
  margin-bottom: 1rem; 
- font-weight: bold; 
+ /*font-weight: bold; */
  line-height: 1.5; 
  cursor: text; 
 }
@@ -336,7 +336,7 @@ article{
 }
 @media screen and (max-width: 960px) {
   article {
-    margin:0 0;
+    margin:0 auto;
     border: 2px solid rgb(231, 234, 237);
     /**do not set max-width:100%,because the border have been take place 2px*/
     max-width: 98%;  

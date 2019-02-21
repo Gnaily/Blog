@@ -13,9 +13,9 @@
   (-> (listof xexpr/c) (listof xexpr/c))
   ;; Here we pass the xexprs through a series of functions.
   (~> xs
-      (syntax-highlight #:python-executable "D:/Programs-develop/Python3.7.2/Scripts/pygmentize.exe"
-                        #:line-numbers? #t
-                        #:css-class "source")
+      (syntax-highlight #:python-executable "D:/Programs-develop/Python3.7.2/python.exe"
+                        #:line-numbers? #f
+                        #:css-class "md-fences md-end-block ty-contain-cm modeLoaded")
       (auto-embed-tweets #:parents? #f)
       (add-racket-doc-links #:code? #f #:prose? #f)))
 
